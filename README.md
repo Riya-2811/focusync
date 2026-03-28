@@ -291,16 +291,20 @@ For local development you can omit `REACT_APP_API_URL` and rely on the Create Re
 
 ## Deployment
 
-FOCUSYNC is designed to be deployed on Render.
+FOCUSYNC is deployed on Render.
 
-| Service  | Platform           |
-| -------- | ------------------ |
-| Backend  | Render Web Service |
-| Frontend | Render Static Site |
+| Service  | Platform           | URL |
+| -------- | ------------------ | --- |
+| Backend  | Render Web Service | [https://focusync.onrender.com](https://focusync.onrender.com) |
+| Frontend | Render Static Site | [https://focusync-1.onrender.com](https://focusync-1.onrender.com) |
 
-Frontend connects to backend via:
+On the **frontend** Render Static Site, set:
 
-- `REACT_APP_API_URL`
+```env
+REACT_APP_API_URL=https://focusync.onrender.com
+```
+
+(No trailing slash.) This matches the fallback in `frontend/src/utils/api.js` if the variable is omitted. Rebuild/redeploy the frontend after changing env vars.
 
 ---
 
