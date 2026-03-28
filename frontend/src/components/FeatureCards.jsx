@@ -6,6 +6,7 @@ const FeatureCard = ({ icon, title, description, link, theme }) => {
   return (
     <Link
       to={link}
+      aria-label={`Open ${title}`}
       className="rounded-2xl p-6 shadow-sm transition duration-300 hover:shadow-lg hover:scale-105 cursor-pointer block"
       style={{
         backgroundColor: theme.background,
@@ -26,15 +27,6 @@ const FeatureCard = ({ icon, title, description, link, theme }) => {
       <p className="text-sm" style={{ color: theme.text, opacity: 0.8 }}>
         {description}
       </p>
-      <div
-        className="mt-4 inline-block px-3 py-1 rounded-lg text-xs font-semibold"
-        style={{
-          backgroundColor: theme.primary,
-          color: 'white',
-        }}
-      >
-        Open →
-      </div>
     </Link>
   );
 };
