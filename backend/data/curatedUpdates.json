@@ -1,0 +1,29 @@
+{
+  "studies": [
+    { "id": "cur-studies-1", "title": "New AI-Powered Learning Platform Released", "summary": "A breakthrough in personalized education with AI tutoring becoming more accessible to students worldwide.", "fullDescription": "A new AI-powered learning platform has been launched, promising to revolutionize personalized education. The platform uses adaptive algorithms to tailor content to each student's pace and learning style.", "category": "Education", "date": "March 12, 2026", "url": "https://www.unesco.org/en/articles/ai-and-future-education-disruptions-dilemmas-and-directions-0" },
+    { "id": "cur-studies-2", "title": "Effective Study Techniques: The Pomodoro Method", "summary": "Research confirms that 25-minute focused sessions improve retention and reduce burnout among students.", "fullDescription": "A comprehensive study confirms the Pomodoro Method's effectiveness. Students who used 25-minute focused blocks showed 35% better retention and 40% lower burnout rates.", "category": "Learning", "date": "March 10, 2026", "url": "https://en.wikipedia.org/wiki/Pomodoro_Technique" },
+    { "id": "cur-studies-3", "title": "University of Oxford Launches Free Online Courses", "summary": "Thousands of courses now available for free, covering mathematics to philosophy.", "fullDescription": "The University of Oxford has expanded its free online course catalog to over 2,000 courses. Topics range from advanced mathematics to humanities.", "category": "Education", "date": "March 9, 2026", "url": "https://www.oxford.ac.uk/study/online" }
+  ],
+  "work": [
+    { "id": "cur-work-1", "title": "Remote Work Productivity Hits Record High", "summary": "Global survey shows remote workers are 13% more productive with proper time management tools.", "fullDescription": "A global survey of remote workers reveals productivity gains when using structured time management. Companies report 13% output increases.", "category": "Productivity", "date": "March 12, 2026", "url": "https://hbr.org/topic/subject/remote-work" },
+    { "id": "cur-work-2", "title": "Focus Time Rules: Setting Boundaries at Work", "summary": "Tech companies report 40% increase in output when implementing no-meeting time blocks.", "fullDescription": "Major tech firms have adopted focus hours where meetings are banned. Employees report 40% more deep work.", "category": "Best Practices", "date": "March 11, 2026", "url": "https://www.atlassian.com/blog/productivity/focus-time" }
+  ],
+  "workout": [
+    { "id": "cur-workout-1", "title": "High-Intensity Interval Training: Efficient Workouts", "summary": "20-minute focused workout sessions deliver same benefits as hour-long traditional exercise.", "fullDescription": "HIIT continues to gain scientific backing. A 20-minute session can match 60 minutes of moderate cardio for cardiovascular benefits.", "category": "Exercise", "date": "March 12, 2026", "url": "https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-adults" }
+  ],
+  "health": [
+    { "id": "cur-health-1", "title": "Sleep Quality Linked to Focus and Productivity", "summary": "Research shows 7–8 hours of sleep improves cognitive performance significantly.", "fullDescription": "Sleep scientists recommend 7–8 hours for optimal cognitive function. Poor sleep impairs focus, memory, and decision-making.", "category": "Health", "date": "March 12, 2026", "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation" }
+  ],
+  "meditation": [
+    { "id": "cur-meditation-1", "title": "10-Minute Meditation Boosts Focus", "summary": "Short daily sessions improve attention span and reduce stress.", "fullDescription": "Research shows that even 10 minutes of daily meditation significantly improves attention span and reduces stress levels.", "category": "Mindfulness", "date": "March 11, 2026", "url": "https://www.nccih.nih.gov/health/meditation-in-depth" }
+  ],
+  "wellness": [
+    { "id": "cur-wellness-1", "title": "Mindfulness Meditation Reduces Stress by 35%", "summary": "Clinical trials show daily meditation significantly improves mental health outcomes.", "fullDescription": "A meta-analysis confirms meditation's benefits. Daily practice reduces stress markers by 35%. Even 10 minutes helps.", "category": "Mental Health", "date": "March 12, 2026", "url": "https://www.nccih.nih.gov/health/meditation-in-depth" }
+  ],
+  "creative": [
+    { "id": "cur-creative-1", "title": "Creative Flow State: Unlocking Your Potential", "summary": "Uninterrupted focus enables creative breakthroughs—artists report 5x more output.", "fullDescription": "Creative professionals report 5x output during flow states. Key triggers: uninterrupted blocks, low stakes, and intrinsic motivation.", "category": "Creativity", "date": "March 12, 2026", "url": "https://www.psychologytoday.com/us/basics/creativity" }
+  ],
+  "default": [
+    { "id": "cur-default-1", "title": "Productivity Tips for Busy Professionals", "summary": "Five evidence-based strategies to get more done in less time.", "fullDescription": "Time blocking, single-tasking, and strategic breaks top the list. Professionals report 30% efficiency gains.", "category": "Productivity", "date": "March 12, 2026", "url": "https://www.mindtools.com/pages/main/time_management.htm" }
+  ]
+}

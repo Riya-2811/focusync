@@ -1,0 +1,52 @@
+{
+  "sessions": [
+    {
+      "id": "1773439635679",
+      "userId": "1773439635604",
+      "duration": 25,
+      "goalCategory": "Work",
+      "date": "2026-03-13T22:07:15.679Z",
+      "createdAt": "2026-03-13T22:07:15.679Z"
+    },
+    {
+      "id": "1773439635686",
+      "userId": "1773439635604",
+      "duration": 25,
+      "goalCategory": "Studies",
+      "date": "2026-03-13T22:07:15.686Z",
+      "createdAt": "2026-03-13T22:07:15.686Z"
+    },
+    {
+      "id": "1773439635694",
+      "userId": "1773439635604",
+      "duration": 30,
+      "goalCategory": "Fitness",
+      "date": "2026-03-13T22:07:15.694Z",
+      "createdAt": "2026-03-13T22:07:15.694Z"
+    },
+    {
+      "id": "1773900412047",
+      "userId": "1773437740899",
+      "duration": 25,
+      "goalCategory": "studies",
+      "date": "2026-03-19T06:06:52.047Z",
+      "createdAt": "2026-03-19T06:06:52.047Z",
+      "distractions": 5,
+      "completed": true,
+      "focusScore": 80,
+      "notes": []
+    },
+    {
+      "id": "1774332093026",
+      "userId": "1773437740899",
+      "duration": 25,
+      "goalCategory": "studies",
+      "date": "2026-03-24T06:01:33.026Z",
+      "createdAt": "2026-03-24T06:01:33.026Z",
+      "distractions": 3,
+      "completed": true,
+      "focusScore": 88,
+      "notes": []
+    }
+  ]
+}

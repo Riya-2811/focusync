@@ -1,0 +1,136 @@
+{
+  "preferences": [
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-default-1",
+      "preference": "not_interested",
+      "goal": "reading",
+      "source": "curated",
+      "updatedAt": "2026-03-14T00:48:38.181Z"
+    },
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-studies-1",
+      "preference": "interested",
+      "goal": "studies",
+      "source": "curated",
+      "updatedAt": "2026-03-14T00:48:49.308Z"
+    },
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-studies-3",
+      "preference": "interested",
+      "goal": "studies",
+      "source": "curated",
+      "updatedAt": "2026-03-14T00:48:55.904Z"
+    },
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-studies-2",
+      "preference": "interested",
+      "goal": "studies",
+      "source": "curated",
+      "updatedAt": "2026-03-14T00:48:57.860Z"
+    },
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-wellness-1",
+      "preference": "interested",
+      "goal": "wellness",
+      "source": "curated",
+      "updatedAt": "2026-03-14T00:55:52.252Z"
+    },
+    {
+      "userId": "1773450425458",
+      "articleId": "cur-studies-3",
+      "preference": "interested",
+      "goal": "studies",
+      "source": "curated",
+      "updatedAt": "2026-03-14T01:08:42.113Z"
+    },
+    {
+      "userId": "1773450425458",
+      "articleId": "cur-studies-1",
+      "preference": "interested",
+      "goal": "studies",
+      "source": "curated",
+      "updatedAt": "2026-03-14T01:08:47.023Z"
+    },
+    {
+      "userId": "1773450425458",
+      "articleId": "cur-studies-2",
+      "preference": "interested",
+      "goal": "studies",
+      "source": "curated",
+      "updatedAt": "2026-03-14T01:08:49.621Z"
+    },
+    {
+      "userId": "1773639142534",
+      "articleId": "cur-default-1",
+      "preference": "not_interested",
+      "goal": "skillimprovement",
+      "source": "curated",
+      "updatedAt": "2026-03-16T05:35:02.850Z"
+    },
+    {
+      "userId": "1773437740899",
+      "articleId": "cur-default-1",
+      "preference": "not_interested",
+      "goal": "default",
+      "source": "curated",
+      "updatedAt": "2026-03-17T04:54:57.574Z"
+    }
+  ],
+  "seenLog": [
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-default-1",
+      "seenAt": "2026-03-14T00:48:38.184Z"
+    },
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-studies-1",
+      "seenAt": "2026-03-14T00:48:49.309Z"
+    },
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-studies-3",
+      "seenAt": "2026-03-14T00:48:55.905Z"
+    },
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-studies-2",
+      "seenAt": "2026-03-14T00:48:57.861Z"
+    },
+    {
+      "userId": "1773442281166",
+      "articleId": "cur-wellness-1",
+      "seenAt": "2026-03-14T00:55:52.253Z"
+    },
+    {
+      "userId": "1773450425458",
+      "articleId": "cur-studies-3",
+      "seenAt": "2026-03-14T01:08:42.114Z"
+    },
+    {
+      "userId": "1773450425458",
+      "articleId": "cur-studies-1",
+      "seenAt": "2026-03-14T01:08:47.024Z"
+    },
+    {
+      "userId": "1773450425458",
+      "articleId": "cur-studies-2",
+      "seenAt": "2026-03-14T01:08:49.622Z"
+    },
+    {
+      "userId": "1773639142534",
+      "articleId": "cur-default-1",
+      "seenAt": "2026-03-16T05:32:49.079Z"
+    },
+    {
+      "userId": "1773437740899",
+      "articleId": "cur-default-1",
+      "seenAt": "2026-03-17T04:54:57.577Z"
+    }
+  ]
+}

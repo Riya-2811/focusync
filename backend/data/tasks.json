@@ -1,0 +1,70 @@
+{
+  "tasks": [
+    {
+      "id": "1773438791496",
+      "userId": "1773438791468",
+      "title": "Test task",
+      "description": "Test description",
+      "priority": "High",
+      "dueDate": "2026-03-20T00:00:00.000Z",
+      "completed": false,
+      "createdAt": "2026-03-13T21:53:11.497Z",
+      "updatedAt": "2026-03-13T21:53:11.497Z"
+    },
+    {
+      "id": "1773438807174",
+      "userId": "1773438807151",
+      "title": "Review code changes",
+      "description": "Review PR #123 and #124",
+      "priority": "Medium",
+      "dueDate": "2026-03-15T00:00:00.000Z",
+      "completed": false,
+      "createdAt": "2026-03-13T21:53:27.174Z",
+      "updatedAt": "2026-03-13T21:53:27.174Z"
+    },
+    {
+      "id": "1773439635641",
+      "userId": "1773439635604",
+      "title": "Complete report",
+      "description": "Finish quarterly report",
+      "priority": "High",
+      "dueDate": "2026-03-20T00:00:00.000Z",
+      "completed": true,
+      "createdAt": "2026-03-13T22:07:15.641Z",
+      "updatedAt": "2026-03-13T22:07:15.667Z"
+    },
+    {
+      "id": "1773439635647",
+      "userId": "1773439635604",
+      "title": "Review code",
+      "description": "Review pull requests",
+      "priority": "Medium",
+      "dueDate": "2026-03-15T00:00:00.000Z",
+      "completed": false,
+      "createdAt": "2026-03-13T22:07:15.647Z",
+      "updatedAt": "2026-03-13T22:07:15.647Z"
+    },
+    {
+      "id": "1773439635653",
+      "userId": "1773439635604",
+      "title": "Update docs",
+      "description": "Update API documentation",
+      "priority": "Low",
+      "dueDate": "2026-03-18T00:00:00.000Z",
+      "completed": false,
+      "createdAt": "2026-03-13T22:07:15.653Z",
+      "updatedAt": "2026-03-13T22:07:15.653Z"
+    },
+    {
+      "id": "1773682866261",
+      "userId": "1773437740899",
+      "title": "Complete Assignment",
+      "description": "Complete the E-commerce assignment by 6th april",
+      "priority": "High",
+      "dueDate": "2026-03-20T00:00:00.000Z",
+      "completed": false,
+      "createdAt": "2026-03-16T17:41:06.261Z",
+      "updatedAt": "2026-03-16T17:41:06.261Z"
+    }
+  ]
+}
