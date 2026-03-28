@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useTheme } from '../context/ThemeContext';
 import { API_BASE } from '../utils/api';
+import PasswordField from '../components/PasswordField';
 
 const Signup = () => {
   const { currentTheme, resetToDefaultTheme } = useTheme();
@@ -159,12 +160,12 @@ const Signup = () => {
         </div>
 
         <div className="mb-4">
-          <input
-            type="password"
+          <PasswordField
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            className="w-full p-3 rounded-lg border-2 transition-colors focus:outline-none placeholder:opacity-60"
+            iconColor={currentTheme.text}
+            autoComplete="new-password"
             style={{
               backgroundColor: currentTheme.accent,
               borderColor: error && password.length < 6 ? '#ef4444' : currentTheme.border,
@@ -186,12 +187,12 @@ const Signup = () => {
         </div>
 
         <div className="mb-6">
-          <input
-            type="password"
+          <PasswordField
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm Password"
-            className="w-full p-3 rounded-lg border-2 transition-colors focus:outline-none placeholder:opacity-60"
+            iconColor={currentTheme.text}
+            autoComplete="new-password"
             style={{
               backgroundColor: currentTheme.accent,
               borderColor: error && password !== confirmPassword ? '#ef4444' : currentTheme.border,
