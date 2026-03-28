@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth theme transitions (goal switch + light/dark mode) */
+html,
+body,
+#root {
+  transition: background-color 300ms ease, color 300ms ease;
+}
