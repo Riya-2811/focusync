@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', auth, async (req, res) => {
   try {
-    const goal = req.query.goal || 'default';
+    const goal = String(req.query.goal || 'default').toLowerCase();
     const category = req.query.category;
     const limit = Math.min(parseInt(req.query.limit, 10) || 15, 30);
     const notInterestedIds = updatesDB.getNotInterestedIds(req.userId);
@@ -33,11 +33,12 @@ router.post('/preference', auth, (req, res) => {
     if (!['interested', 'not_interested'].includes(preference)) {
       return res.status(400).json({ error: 'preference must be interested or not_interested' });
     }
+    const goalNorm = goal ? String(goal).toLowerCase() : 'default';
     const record = updatesDB.savePreference(
       req.userId,
       articleId,
       preference,
-      goal || 'default'
+      goalNorm
     );
     updatesDB.logSeen(req.userId, articleId);
     res.json({ success: true, preference: record });

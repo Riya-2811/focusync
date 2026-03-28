@@ -180,7 +180,7 @@ const Updates = () => {
   const [updates, setUpdates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [filterGoal, setFilterGoal] = useState(selectedGoal || 'default');
+  const [filterGoal, setFilterGoal] = useState(() => selectedGoal || 'default');
   const [removingIds, setRemovingIds] = useState([]);
 
   const fetchUpdates = useCallback(async (silent = false) => {
@@ -195,8 +195,9 @@ const Updates = () => {
       return;
     }
     try {
+      const goalParam = (filterGoal || 'default').toLowerCase();
       const res = await axios.get(
-        `${API_BASE}/updates?goal=${encodeURIComponent(filterGoal)}&limit=15`,
+        `${API_BASE}/updates?goal=${encodeURIComponent(goalParam)}&limit=15`,
         { headers: { Authorization: token } }
       );
       setUpdates(res.data.updates || []);
@@ -217,7 +218,7 @@ const Updates = () => {
     try {
       await axios.post(
         `${API_BASE}/updates/preference`,
-        { articleId, preference: 'interested', goal: filterGoal },
+        { articleId, preference: 'interested', goal: (filterGoal || 'default').toLowerCase() },
         { headers: { Authorization: token } }
       );
     } catch (err) {
@@ -231,7 +232,7 @@ const Updates = () => {
     try {
       await axios.post(
         `${API_BASE}/updates/preference`,
-        { articleId, preference: 'not_interested', goal: filterGoal },
+        { articleId, preference: 'not_interested', goal: (filterGoal || 'default').toLowerCase() },
         { headers: { Authorization: token } }
       );
       setTimeout(() => {

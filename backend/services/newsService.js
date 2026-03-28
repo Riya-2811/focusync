@@ -43,7 +43,8 @@ function formatPublishedDate(publishedAt) {
 async function fetchFromGNews(goal, limit = 10) {
   const apiKey = process.env.GNEWS_API_KEY;
   if (!apiKey) return [];
-  const queries = GOAL_TO_QUERY[goal] || GOAL_TO_QUERY.default;
+  const g = (goal || 'default').toLowerCase();
+  const queries = GOAL_TO_QUERY[g] || GOAL_TO_QUERY.default;
   const q = queries[0];
   try {
     const res = await fetch(
@@ -71,28 +72,63 @@ async function fetchFromGNews(goal, limit = 10) {
   return [];
 }
 
-function getCuratedForGoal(goal) {
-  const key = goal && curatedData[goal] ? goal : 'default';
-  return (curatedData[key] || curatedData.default || []).map((a) => ({
+function mapCuratedArticle(a) {
+  return {
     ...a,
     sourceName: a.category || 'Curated',
     publishedDate: a.date || '',
     imageUrl: a.imageUrl || null,
     source: a.source || 'curated',
-  }));
+  };
+}
+
+/**
+ * Curated JSON only defines a subset of goals. For goals with no dedicated list,
+ * merge related categories so filters don't all show the same "default" feed.
+ */
+function getCuratedForGoal(goal) {
+  const normalized = (goal || 'default').toLowerCase();
+  const direct = curatedData[normalized];
+  if (direct && direct.length) {
+    return direct.map(mapCuratedArticle);
+  }
+
+  const FALLBACK_CHAINS = {
+    reading: ['studies', 'default'],
+    skillimprovement: ['work', 'studies', 'default'],
+    personaldevelopment: ['wellness', 'meditation', 'default'],
+    sociallife: ['work', 'default'],
+    hobbies: ['creative', 'default'],
+    fitness: ['workout', 'health', 'default'],
+  };
+
+  const chain = FALLBACK_CHAINS[normalized] || ['default'];
+  const seen = new Set();
+  const merged = [];
+  for (const k of chain) {
+    const arr = curatedData[k] || [];
+    for (const a of arr) {
+      if (a && a.id && !seen.has(a.id)) {
+        seen.add(a.id);
+        merged.push(a);
+      }
+    }
+  }
+  return merged.map(mapCuratedArticle);
 }
 
 async function getUpdates(goal, excludeIds = [], limit = 15) {
-  const cacheKey = `${goal}-${limit}`;
+  const g = (goal || 'default').toLowerCase();
+  const cacheKey = `${g}-${limit}`;
   const cached = cache.get(cacheKey);
   if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
     return cached.data.filter((a) => !excludeIds.includes(a.id)).slice(0, limit);
   }
 
-  const curated = getCuratedForGoal(goal);
+  const curated = getCuratedForGoal(g);
   let apiItems = [];
   if (process.env.GNEWS_API_KEY) {
-    apiItems = await fetchFromGNews(goal, Math.max(limit, 10));
+    apiItems = await fetchFromGNews(g, Math.max(limit, 10));
   }
 
   const combined = [...apiItems, ...curated];
