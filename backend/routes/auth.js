@@ -111,6 +111,61 @@ router.get('/me', auth, (req, res) => {
   }
 });
 
+// Update profile (name/email)
+router.put('/profile', auth, (req, res) => {
+  try {
+    const { username, email } = req.body || {};
+    const result = mockDB.updateUserProfile(req.userId, { username, email });
+    if (result.error) return res.status(400).json({ error: result.error });
+    res.json({ message: 'Profile updated successfully', user: result.user });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// Change password
+router.put('/password', auth, async (req, res) => {
+  try {
+    const { currentPassword, newPassword, confirmPassword } = req.body || {};
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      return res.status(400).json({ error: 'All password fields are required' });
+    }
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({ error: 'New passwords do not match' });
+    }
+    const result = await mockDB.changePassword(req.userId, currentPassword, newPassword);
+    if (result.error) return res.status(400).json({ error: result.error });
+    res.json({ message: 'Password updated successfully' });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// Get user settings/preferences blob
+router.get('/preferences', auth, (req, res) => {
+  try {
+    const preferences = mockDB.getUserSettings(req.userId);
+    res.json({ preferences });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// Save user settings/preferences blob
+router.put('/preferences', auth, (req, res) => {
+  try {
+    const { preferences } = req.body || {};
+    if (!preferences || typeof preferences !== 'object' || Array.isArray(preferences)) {
+      return res.status(400).json({ error: 'preferences must be an object' });
+    }
+    const saved = mockDB.setUserSettings(req.userId, preferences);
+    if (!saved) return res.status(404).json({ error: 'User not found' });
+    res.json({ message: 'Preferences saved', preferences: saved });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 // Get theme preference (primary color hex) for current user
 router.get('/theme', auth, (req, res) => {
   try {

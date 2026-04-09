@@ -3,6 +3,7 @@ const router = express.Router();
 const auth = require('../middleware/auth');
 const focusSessionsDB = require('../db/focusSessionsDB');
 const tasksDB = require('../db/tasksDB');
+const updatesDB = require('../db/updatesDB');
 
 // Get all focus sessions for the current user
 router.get('/', auth, (req, res) => {
@@ -197,6 +198,18 @@ router.post('/', auth, (req, res) => {
     res.status(201).json(session);
   } catch (err) {
     console.error('[FOCUS] Error creating session:', err);
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// Clear user productivity history (focus sessions + tasks + update preferences)
+router.delete('/history', auth, (req, res) => {
+  try {
+    focusSessionsDB.clearSessionsByUserId(req.userId);
+    tasksDB.clearTasksByUserId(req.userId);
+    updatesDB.clearByUserId(req.userId);
+    res.json({ message: 'Productivity history cleared' });
+  } catch (err) {
     res.status(400).json({ error: err.message });
   }
 });

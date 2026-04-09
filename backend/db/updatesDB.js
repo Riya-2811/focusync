@@ -64,6 +64,14 @@ const updatesDB = {
       .filter((p) => p.userId === userId && p.preference === 'not_interested')
       .map((p) => p.articleId);
   },
+
+  clearByUserId: (userId) => {
+    const data = readData();
+    data.preferences = data.preferences.filter((p) => p.userId !== userId);
+    data.seenLog = data.seenLog.filter((s) => s.userId !== userId);
+    writeData(data);
+    return true;
+  },
 };
 
 module.exports = updatesDB;

@@ -276,6 +276,13 @@ const focusSessionsDB = {
     }
     return result;
   },
+
+  clearSessionsByUserId: (userId) => {
+    const sessions = readSessions();
+    const filtered = sessions.filter(s => s.userId !== userId);
+    writeSessions(filtered);
+    return true;
+  },
 };
 
 module.exports = focusSessionsDB;

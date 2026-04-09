@@ -14,8 +14,23 @@
       "email": "riyachandna2005@gmail.com",
       "password": "$2b$08$48o/V5SlurQVeeBBkcMYL.MXRhJJAU/MDfK8gOn21xTkvLCfOJ.Za",
       "createdAt": "2026-03-13T21:35:40.899Z",
-      "updatedAt": "2026-03-19T06:19:37.075Z",
-      "themePrimary": null
+      "updatedAt": "2026-04-09T06:40:24.479Z",
+      "themePrimary": null,
+      "settings": {
+        "focusMinutes": 25,
+        "breakMinutes": 5,
+        "autoStartNextSession": false,
+        "soundNotifications": true,
+        "desktopNotifications": true,
+        "dailyFocusGoalHours": 2,
+        "weeklyReports": true,
+        "productivityReminders": true,
+        "distractionAlerts": true,
+        "emailNotifications": false,
+        "sessionCompletionAlerts": true,
+        "breakReminders": true,
+        "weeklyProductivitySummary": true
+      }
     },
     {
       "id": "1773438586054",

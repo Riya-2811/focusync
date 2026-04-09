@@ -118,7 +118,14 @@ const tasksDB = {
   // Clear all tasks (for debugging)
   clearAllTasks: () => {
     writeTasks([]);
-  }
+  },
+
+  clearTasksByUserId: (userId) => {
+    const tasks = readTasks();
+    const filteredTasks = tasks.filter(t => t.userId !== userId);
+    writeTasks(filteredTasks);
+    return true;
+  },
 };
 
 module.exports = tasksDB;

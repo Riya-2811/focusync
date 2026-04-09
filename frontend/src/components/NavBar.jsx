@@ -156,7 +156,7 @@ const NavBar = () => {
                   👤 Profile
                 </button>
                 <button
-                  onClick={() => { setUserMenuOpen(false); alert('Settings coming soon'); }}
+                  onClick={() => { setUserMenuOpen(false); navigate('/settings'); }}
                   className="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:opacity-90"
                   style={{ color: currentTheme.text }}
                 >

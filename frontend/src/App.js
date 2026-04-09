@@ -12,6 +12,7 @@ import Planner from './pages/Planner';
 import Tasks from './pages/Tasks';
 import Analytics from './pages/Analytics';
 import Updates from './pages/Updates';
+import SettingsPage from './pages/SettingsPage';
 
 function AppContent() {
   const { currentTheme, isOnboarded } = useTheme();
@@ -79,6 +80,10 @@ function AppContent() {
         <Route
           path="/updates"
           element={isLoggedIn ? (isOnboarded ? <Updates /> : <Navigate to="/onboarding" replace />) : <Navigate to="/" replace />}
+        />
+        <Route
+          path="/settings"
+          element={isLoggedIn ? (isOnboarded ? <SettingsPage /> : <Navigate to="/onboarding" replace />) : <Navigate to="/" replace />}
         />
       </Routes>
     </div>

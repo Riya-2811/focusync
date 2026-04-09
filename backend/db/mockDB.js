@@ -126,6 +126,77 @@ const mockDB = {
     writeUsers(users);
     return users[idx].themePrimary;
   },
+
+  updateUserProfile: (userId, updates = {}) => {
+    const users = readUsers();
+    const idx = users.findIndex(u => u.id === userId);
+    if (idx < 0) return { error: 'User not found' };
+
+    const nextUsername = typeof updates.username === 'string' ? updates.username.trim() : users[idx].username;
+    const nextEmail = typeof updates.email === 'string' ? updates.email.trim().toLowerCase() : users[idx].email;
+
+    if (!nextUsername || nextUsername.length < 2) {
+      return { error: 'Name must be at least 2 characters' };
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(nextEmail)) {
+      return { error: 'Please provide a valid email address' };
+    }
+
+    const emailConflict = users.find(u => u.id !== userId && u.email.toLowerCase() === nextEmail);
+    if (emailConflict) {
+      return { error: 'Email already exists' };
+    }
+    const usernameConflict = users.find(u => u.id !== userId && u.username.toLowerCase() === nextUsername.toLowerCase());
+    if (usernameConflict) {
+      return { error: 'Username already exists' };
+    }
+
+    users[idx].username = nextUsername;
+    users[idx].email = nextEmail;
+    users[idx].updatedAt = new Date().toISOString();
+    writeUsers(users);
+    return {
+      user: {
+        id: users[idx].id,
+        username: users[idx].username,
+        email: users[idx].email,
+        createdAt: users[idx].createdAt,
+        themePrimary: users[idx].themePrimary || null,
+      }
+    };
+  },
+
+  changePassword: async (userId, currentPassword, newPassword) => {
+    const users = readUsers();
+    const idx = users.findIndex(u => u.id === userId);
+    if (idx < 0) return { error: 'User not found' };
+    if (!currentPassword || !newPassword) return { error: 'Current and new password are required' };
+    if (newPassword.length < 8) return { error: 'New password must be at least 8 characters' };
+
+    const ok = await bcrypt.compare(currentPassword, users[idx].password);
+    if (!ok) return { error: 'Current password is incorrect' };
+
+    users[idx].password = await bcrypt.hash(newPassword, 8);
+    users[idx].updatedAt = new Date().toISOString();
+    writeUsers(users);
+    return { success: true };
+  },
+
+  getUserSettings: (userId) => {
+    const user = readUsers().find(u => u.id === userId);
+    return user?.settings && typeof user.settings === 'object' ? user.settings : {};
+  },
+
+  setUserSettings: (userId, settings) => {
+    const users = readUsers();
+    const idx = users.findIndex(u => u.id === userId);
+    if (idx < 0) return null;
+    const safeSettings = settings && typeof settings === 'object' ? settings : {};
+    users[idx].settings = safeSettings;
+    users[idx].updatedAt = new Date().toISOString();
+    writeUsers(users);
+    return users[idx].settings;
+  },
 };
 
 module.exports = mockDB;
